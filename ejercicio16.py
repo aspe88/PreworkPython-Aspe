@@ -6,16 +6,17 @@ una lista ingresada por el usuario.'''
 #2. Ejecuta ejercicio16.py
 #3. Obten la cantidad de números pares e impares
 
+def contar_par_impar(lista):
+  pares = 0
+  impares = 0
+  for num in lista:
+    if (num % 2) == 0:  
+      pares += 1
+    else:  
+      impares += 1
+  return pares, impares
 
-lista = [1, 5, 7, 13, 22, 15, 26, 64, 34, 72, 52, -14]
-
-
-a = 0
-b = 0
-for num in lista:
-  if (num % 2) == 0:  
-    a += 1
-  else:  
-    b += 1
-print(f'En la lista hay',a,'números pares y',b,'numeros impares')
+numeros = list(map(int,input('Introduce la lista de numeros separados por espacios: ').split()))
+pares, impares = contar_par_impar(numeros)
+print(f'En la lista hay',pares,'números pares y',impares,'numeros impares')
 

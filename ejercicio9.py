@@ -7,7 +7,7 @@ Crea un programa que convierta una cantidad de dólares a euros. Suponiendo que
 # 3. Obten el resultado en Euros
 
 
-Dolar = 1000
+Dolar = float(input('Introduce el importe en Dólares: '))
 
 Euro = 0.85 * Dolar
 print(f'',Euro,'Euros')

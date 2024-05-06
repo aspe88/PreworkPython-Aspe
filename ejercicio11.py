@@ -6,10 +6,10 @@ actual.'''
 #2. Ejecuta ejercicio11.py
 #3. Obten tu edad.
 
-ano = "1989"
+ano = str(input('Introduce el año de nacimiento: '))
 
 from datetime import datetime
 fecha_nacimiento = datetime.strptime(ano,"%Y")
 edad = datetime.now().year - fecha_nacimiento.year
 
-print("Tu edad es:", edad)
+print("Tu edad es de: ", edad, "años")

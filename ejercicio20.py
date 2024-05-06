@@ -2,14 +2,12 @@
 Crea un programa que sume todos los números en una lista ingresada por el
 usuario'''
 
-#1. Introduce todos los numeros que quieras entre los corchetes, separados por comas
-#2. Ejecuta ejercicio20.py
-#3. Obten el resultado de la suma
+def sumar(lista):
+  suma = 0
+  for num in lista:
+    suma += num
+  return suma
 
-
-numeros =[10,1,1,1,1,1,1,1,1,1,1,1]
-
-suma = 0
-for numero in numeros:
-  suma += numero
-print(f'La suma total es',suma)
+numeros = list(map(int, input('Introduce una lista de números separados por espacios: ').split()))
+resultado = sumar(numeros)
+print(f'La suma de los números en la lista es: {resultado}')

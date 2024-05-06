@@ -1,12 +1,8 @@
 '''Ejercicio 8: Cálculo del Índice de Masa Corporal (IMC)
 Escribe un programa que calcule el Índice de Masa Corporal (IMC) de una persona.'''
 
-# 1. Introduce tu peso y altura
-# 2. Ejecuta ejercicio8.py
-# 3. Obtienes un IMC Índice de masa corporal
-
-peso = 75
-altura = 1.75
+peso = float(input('Introduce el peso en kg: '))
+altura = float(input('Introduce la altura en m: '))
 
 imc = peso/altura**2
 print(f'Tu índice de masa corporal es de:',imc)

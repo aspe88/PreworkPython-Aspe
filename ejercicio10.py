@@ -6,7 +6,7 @@ número ingresado por el usuario (1 para lunes, 2 para martes, etc.).'''
 # 2. Ejecuta ejercicio10.py
 # 3. Obten el día de la semana
 
-n = 7
+n = int(input('Introduce el día de la semana del 1 al 7: '))
 
 if n == 1:
   print('Lunes')

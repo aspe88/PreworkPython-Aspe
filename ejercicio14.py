@@ -6,7 +6,7 @@ descuento del 20%.'''
 #2. Ejecuta ejercicio14.py
 #3. Obten el precio final con el desceunto aplicado
 
-x = 7777.99
+x = float(input('Introduce el precio en €: '))
 
 y = x*0.8
 print(f'El precio con descuento es de:',y,'€')

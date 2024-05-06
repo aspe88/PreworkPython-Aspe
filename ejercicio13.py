@@ -6,9 +6,9 @@ o no.'''
 #2. Ejecuta ejercicio13.py
 #3. Obten si el número es primo o no. Sino lo es obtiene también su primer divisor, distino de 1.
 
-x = 1001
+num = int(input('Introduce un número para saber si es primo: '))
 
-if x < 2:
+if num < 2:
   print('Los números negativos o menores de 2 no son primos.')
 else:
   def es_primo(num):
@@ -18,4 +18,4 @@ else:
             return False
     print(f'',num,"es un número primo.")
     return True
-  es_primo(x)
+  es_primo(num)

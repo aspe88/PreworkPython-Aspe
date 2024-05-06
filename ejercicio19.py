@@ -6,9 +6,14 @@ no.'''
 #2. Ejecuta ejercicio19.py
 #3. Obten si el año es o no bisiesto.
 
-year = 2025
+def es_bisiesto(ano):
+  if (ano %4 == 0 and ano % 100 != 0) or ano % 400 == 0:
+    return True
+  return False
 
-if year %4 != 0:
-  print(f'El Año',year,'no es bisiesto')
+ano = int(input('Introduce un año para saber si es bisiesto: '))
+
+if es_bisiesto(ano):
+  print(f'El Año',ano,'es bisiesto')
 else:
-  print(f'El Año',year,'es bisiesto')
+  print(f'El Año',ano,'no es bisiesto')

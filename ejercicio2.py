@@ -6,7 +6,7 @@ una propina del 15% sobre el total de la cuenta.'''
 # 2. Ejecuta ejercicio2.py
 # 3. Obtienes total con propina incluida
 
-price = 20
+price = float(input('Introduce precio en € '))
 price_total = price*1.15
 
 

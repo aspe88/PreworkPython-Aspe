@@ -6,8 +6,8 @@ ejemplo, 145 minutos serían 2 horas y 25 minutos.'''
 #2. Ejecuta ejercicio15.py
 #3. Obten el resultado en horas y minutos
 
-x = 145
+x = float(input('Introduce los minutos: '))
 
 y = int(x/60)
 f = x-(y*60)
-print(f'Los minutos indicados son',y,'horas y',f,'minutos')
+print(f'Los', x, 'minutos indicados son',y,'horas y',f,'minutos')

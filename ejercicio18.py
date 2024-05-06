@@ -7,7 +7,7 @@ el usuario.'''
 #3. Obten el número de palabras de la frase
 
 
-frase = 'Hola gentuza. Aquí practicando'
+frase = str(input('Introduce tu frase: '))
 
 palabras = frase.split()
 i = 0

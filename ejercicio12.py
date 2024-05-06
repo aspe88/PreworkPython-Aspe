@@ -6,8 +6,8 @@ longitud y el ancho del rectángulo.'''
 # 2. Ejecuta el ejercicio12.py
 # 3. Obten el área en cm2 (si introuces otra undiades, obtendrás esas unidades al cuadrado)
 
-l = 2
-a = 4
+l = float(input('Introduce el largo en cm: '))
+a = float(input('Introduce el ancho en cm: '))
 
 s = l*a
 print(f'El area del rectángulo es de:',s,'cm2')

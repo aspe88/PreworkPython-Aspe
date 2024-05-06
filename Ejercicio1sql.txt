@@ -1,0 +1,315 @@
+CREATE TABLE Clientes(
+	id SERIAL PRIMARY KEY,
+	name VARCHAR(200) NOT null,
+	email VARCHAR(200) NOT null
+)
+
+INSERT INTO public.clientes(name, email)
+VALUES ('Juan', 'juan@example.com')
+
+UPDATE public.clientes
+SET email ='juan@gmail.com'
+Where id = 1
+
+DELETE FROM public.clientes
+WHERE id = 1;
+
+CREATE TABLE Pedidos(
+	id SERIAL PRIMARY KEY,
+	cliente_id INT NOT null,
+	CONSTRAINT FK_cliente_id FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+	producto VARCHAR(200) NOT null,
+	cantidad INT NOT null
+)
+
+INSERT INTO public.pedidos(cliente_id, producto, cantidad)
+VALUES (1, 'camiseta', 2)
+
+UPDATE public.pedidos
+SET cantidad = 3
+Where id = 3
+
+DELETE FROM public.pedidos
+WHERE id = 3;
+
+CREATE TABLE Productos(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null,
+	precio DECIMAL NOT null
+)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('gorra', 18.49)
+
+SELECT * FROM public.clientes
+
+SELECT *FROM public.pedidos p
+INNER JOIN public.clientes c
+ON c.id = p.cliente_id
+
+SELECT *FROM public.productos p
+Where precio > 50
+
+SELECT * FROM public.pedidos p
+Where cantidad >= 5
+
+SELECT * FROM public.clientes c
+Where name LIKE 'A%'
+
+SELECT * FROM public.clientes c
+left JOIN public.pedidos p
+ON c.id = p.cliente_id
+
+SELECT * FROM public.productos c
+INNer join public.pedidos p
+on c.nombre = p.producto
+
+ALTER TABLE public.pedidos
+add column fecha date;
+
+ALTER table public.pedidos
+	add column producto_id INT
+
+SELECT * FROM public.clientes
+INNer join public.pedidos
+on public.clientes.name = public.pedidos.producto
+
+
+
+EJERCICIO 2
+
+CREATE TABLE Usuarios(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null,
+	edad INT NOT null
+)
+
+INSERT INTO public.usuarios(nombre, edad)
+VALUES ('Juan', 25)
+
+INSERT INTO public.usuarios(nombre, edad)
+VALUES ('Vic', 30)
+
+UPDATE public.usuarios
+SET edad = 22
+Where id = 1
+
+DELETE FROM public.usuarios
+WHERE id = 1;
+
+CREATE TABLE Ciudades(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null,
+	pais VARCHAR(200) NOT null
+)
+
+INSERT INTO public.ciudades(nombre, pais)
+VALUES ('Vigo', 'Spain')
+
+INSERT INTO public.ciudades(nombre, pais)
+VALUES ('Roma', 'Italy')
+
+INSERT INTO public.ciudades(nombre, pais)
+VALUES ('Paris', 'France')
+
+ALTER table public.usuarios
+	add column ciudades_id INT
+
+
+Alter table public.usuarios
+	add CONSTRAINT FK_ciudades_id FOREIGN KEY (ciudades_id) REFERENCES ciudades(id)
+
+
+SELECT * FROM public.usuarios u
+left JOIN public.ciudades c
+ON u.ciudades_id = c.id
+
+SELECT * FROM public.usuarios u
+inner JOIN public.ciudades c
+ON u.ciudades_id = c.id
+
+
+EJERCICIO 3
+
+CREATE TABLE Productos(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null,
+	precio DECIMAL NOT null
+)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('gorra', 18.49)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('camiseta', 8.49)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('pantalon', 28.49)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('chaqueta', 48.49)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('calcetines', 1.49)
+
+INSERT INTO public.productos(nombre, precio)
+VALUES ('albornoz', 11.49)
+
+UPDATE public.productos
+SET precio = 15
+Where id = 1
+
+DELETE FROM public.productos
+WHERE id = 5;
+
+No se puede relacionar productos con usuarios sin una Foreign key. no tiene sentido relacionar productos con clientes de forma directa. 
+
+EJERCICIO 4.
+
+CREATE TABLE Pedidos(
+	id SERIAL PRIMARY KEY,
+	id_usuario INT NOT null,
+	CONSTRAINT FK_id_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios(id),
+	id_producto INT NOT null,
+	CONSTRAINT FK_id_producto FOREIGN KEY (id_producto) REFERENCES productos(id)	
+)
+
+INSERT INTO public.usuarios (nombre, edad, ciudades_id)
+VALUES ('Juan', 20, 1)
+
+INSERT INTO public.pedidos(id_usuario, id_producto)
+VALUES (2,1)
+
+INSERT INTO public.pedidos(id_usuario, id_producto)
+VALUES (2,2)
+
+INSERT INTO public.pedidos(id_usuario, id_producto)
+VALUES (2,4)
+
+SELECT * FROM public.usuarios u
+left JOIN public.pedidos p
+ON u.id = p.id_usuario
+left JOIN public.productos x
+ON x.id = p.id_producto
+
+SELECT * FROM public.usuarios u
+left JOIN public.pedidos p
+ON u.id = p.id_usuario
+
+ALTER table public.pedidos
+	add column cantidad INT
+
+UPDATE public.pedidos
+SET cantidad = 2
+Where id = 1
+
+UPDATE public.pedidos
+SET cantidad = 4
+Where id = 2
+
+UPDATE public.pedidos
+SET cantidad = 6
+Where id = 3
+
+EJERCICIO 5
+
+CREATE TABLE Clientes(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null
+)
+
+INSERT INTO public.clientes(nombre)
+VALUES ('John')
+
+UPDATE public.clientes
+SET nombre ='John Doe'
+Where id = 1
+
+DELETE FROM public.clientes
+WHERE id = 1;
+
+SELECT * FROM public.clientes
+
+CREATE TABLE pedidos(
+	id SERIAL PRIMARY KEY,
+	cliente_id INT NOT null
+)
+
+INSERT INTO public.pedidos(cliente_id)
+VALUES (1)
+
+UPDATE public.pedidos
+SET cliente_id = 2
+Where id = 1
+
+DELETE FROM public.pedidos
+WHERE id = 1;
+
+SELECT * FROM public.pedidos
+
+CREATE TABLE Productos(
+	id SERIAL PRIMARY KEY,
+	nombre VARCHAR(200) NOT null
+)
+
+INSERT INTO public.productos(nombre)
+VALUES ('camisa')
+
+UPDATE public.productos
+SET nombre = 'Pantalón'
+Where id = 1
+
+DELETE FROM public.productos
+WHERE id = 1;
+
+SELECT * FROM public.productos
+
+CREATE TABLE detallespedido(
+	id SERIAL PRIMARY KEY,
+	producto_id INT NOT null
+)
+
+INSERT INTO public.detallespedido(producto_id)
+VALUES (1)
+
+UPDATE public.detallespedido
+SET producto_id = 2
+Where id = 1
+
+DELETE FROM public.detallespedido
+WHERE id = 1;
+
+SELECT * FROM public.detallespedido
+
+SELECT *FROM public.clientes c
+INNER JOIN public.pedidos p
+ON c.id = p.cliente_id
+
+SELECT *FROM public.clientes c
+LEFT JOIN public.pedidos p
+ON c.id = p.cliente_id
+
+SELECT *FROM public.productos c
+INNER JOIN public.detallespedido p
+ON c.id = p.producto_id
+
+SELECT *FROM public.productos c
+LEFT JOIN public.detallespedido p
+ON c.id = p.producto_id
+
+ALTER TABLE public.clientes
+add column telefono VARCHAR(15);
+
+ALTER TABLE public.clientes
+ALTER COLUMN telefono TYPE INT
+
+ALTER table public.clientes
+Drop column telefono;
+
+alter table public.clientes rename to usuarios
+
+ALTER table public.usuarios
+	rename column nombre to nombre_completo
+
+ALTER table public.usuarios
+  add primary key (id);

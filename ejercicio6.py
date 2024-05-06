@@ -6,7 +6,7 @@ palíndromo (se lee igual de izquierda a derecha que de derecha a izquierda)'''
 # 2. Ejecuta ejercicio6.py
 # 3. Te indica si la plabra es o no un palíndromo
 
-palabra = "ojo"
+palabra = str(input('Introduce una palabra y comprueba si es un palíndromo: '))
 if palabra == palabra[::-1]:
   print(f'la palabra',palabra,'es un palíndromo')
 else:

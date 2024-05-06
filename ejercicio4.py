@@ -6,15 +6,18 @@ usuario'''
 # 2. Ejecuta ejercicio4.py
 # 3. Obtienes el número de volcaes de la palabra o frase
 
-palabra = 'holadasfasdgsbtreavgfreadgva'
+def contar_vocales(palabra):
+    vocales = 'aeiouAEIOUáéióúÁÉÍÓÚ'
+    a = 0
+    for vocal in palabra:
+        if vocal in vocales:
+            a += 1
+    return a
 
-vocales = 'a,e,i,o,u,A,E,I,O,U,á,é,i,ó,ú,Á,É,Í,Ó,Ú,'
-a = 0
-for vocal in palabra:
-    if vocal in vocales:
-        a += 1
+palabra = input('Introduce una palabra/frase: ')
+numero_vocales = contar_vocales(palabra)
+print(f'El número de vocales en la palabra es: {numero_vocales}')
 
-print(f'El número de vocales en la palabra es:',a)
- 
+
 
 

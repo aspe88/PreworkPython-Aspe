@@ -7,21 +7,19 @@ multiplicación, división) según la elección del usuario.'''
 # 3. Ejecuta el ejercicio7.py
 # 4. Obtener el resultado de la operación.
 
-
-num1=10
-num2=5
-operador = 'suma'
-
+num1 = float(input('numero1: '))
+num2 = float(input('numero2: '))
+operador = str(input('símbolo: '))
 
 resultado = 0
 
-if operador == 'suma':
+if operador == '+':
     resultado = num1 + num2
-elif operador == 'resta':
+elif operador == '-':
     resultado = num1 - num2
-elif operador == 'multiplicación':
+elif operador == '*':
     resultado = num1 * num2
-elif operador == 'división':
+elif operador == '/':
     resultado = num1 / num2
 
 print(f"El resultado de la",operador,'es', resultado)

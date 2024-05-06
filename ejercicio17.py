@@ -6,7 +6,7 @@ que 1 milla equivale a 1.60934 kilómetros.'''
 #2. Ejecuta ejercicio17.py
 #3. Obten el cambio en kilometros
 
-millas = 100
+millas = float(input('Introduce las millas: '))
 
 kilometros = millas/1.60934
-print(f'Las millas introducidas corresponden a', kilometros,'km')
+print(f'Las', millas, 'millas corresponden a', kilometros,'km')
